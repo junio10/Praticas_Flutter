@@ -6,13 +6,19 @@ class Person {
 }
 
 class Car {
-  String model;
-  String nameCar;
+  String _model;
+  String _nameCar;
   Person proprierty;
-  Car(this.model, this.nameCar, this.proprierty);
+
+  Car(this._model, this.proprierty, this._nameCar);
 
   void printModel() {
-    print(this.model);
+    print(this._model);
+    print(this._nameCar);
+  }
+
+  void printNameCar() {
+    print(this._nameCar);
   }
 
   void printProprierty() {
@@ -21,15 +27,25 @@ class Car {
   }
 }
 
+void criarBotao(String texto, {int largura, int altura}) {
+  print(texto);
+  print(altura);
+  print(largura);
+}
+
 void main() {
   //create person
-  Person p = new Person('Moises', 'Santos');
+  Person p = Person('Moises', 'Santos');
   print('Person first name is ${p.firstName} and last name is ${p.lastName}');
   //create car
-  Car car = new Car('BMW', 'M3', p);
+  Car car = Car('BMW', p, "m3");
   car.printProprierty();
   car.printModel();
+  car.printNameCar();
   //create car 2
-  Car car1 = new Car('MERCEDES', 'CLS', p);
+  Car car1 = Car('MERCEDES', p, 'CLS');
   car1.printModel();
+
+  //
+  criarBotao('btn');
 }
